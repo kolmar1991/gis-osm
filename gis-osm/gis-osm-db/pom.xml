@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <artifactId>gis-osm</artifactId>
+        <groupId>pl.edu.agh</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+
+    <groupId>pl.edu.agh</groupId>
+    <artifactId>gis-osm-db</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>gis-osm-db</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-maven-plugin</artifactId>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <jdbc.driver>org.postgresql.Driver</jdbc.driver>
+        <jdbc.url>jdbc:postgresql://127.0.0.1:15432/ztb2014</jdbc.url>
+        <jdbc.username>ztb2014</jdbc.username>
+        <jdbc.password>ztb2014</jdbc.password>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-maven-plugin</artifactId>
+                <configuration>
+                    <changeLogFile>liquibase/changelog.xml</changeLogFile>
+                    <driver>${jdbc.driver}</driver>
+                    <url>${jdbc.url}</url>
+                    <username>${jdbc.username}</username>
+                    <password>${jdbc.password}</password>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
