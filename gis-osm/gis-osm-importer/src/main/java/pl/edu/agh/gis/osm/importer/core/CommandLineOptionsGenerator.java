@@ -4,7 +4,6 @@ import org.apache.commons.cli.Options;
 
 public class CommandLineOptionsGenerator {
 
-	@SuppressWarnings("static-access")
 	public static Options createOptions() {
 		
 		Options options = new Options();

@@ -8,7 +8,6 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.postgresql.Driver;
-import org.postgresql.ssl.NonValidatingFactory;
 
 import pl.edu.agh.gis.osm.importer.core.CommandLineOption;
 
@@ -18,9 +17,6 @@ public class GisOsmDao {
 	private static final String URL_PATTERN = "jdbc:postgresql://%s/%s";
 	private static final String USER = "user";
 	private static final String PASSWORD = "password";
-	private static final String SSL = "ssl";
-private static final String SSL_FACTORY = "sslfactory";
-	private static final Class<NonValidatingFactory> SLL_FACTORY_CLASS = NonValidatingFactory.class;
 	
 	private static final String CLEAR_TABLES_QUERY = "SELECT truncate_tables()";
 	
@@ -41,8 +37,6 @@ private static final String SSL_FACTORY = "sslfactory";
 		Properties properties = new Properties();
 		properties.put(USER, parameters.get(CommandLineOption.DB_USER));
 		properties.put(PASSWORD, parameters.get(CommandLineOption.DB_PASSWORD));
-		properties.put(SSL, "false");
-		properties.put(SSL_FACTORY, SLL_FACTORY_CLASS.getName());
 		
 		try {
 			Connection connection = DriverManager.getConnection(url, properties);

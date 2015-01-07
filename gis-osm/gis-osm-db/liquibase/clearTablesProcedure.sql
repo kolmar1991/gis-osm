@@ -17,7 +17,6 @@ BEGIN
  TRUNCATE loader_lookuptables  ;
  TRUNCATE geocode_settings ;
  TRUNCATE loader_platform  ;
- TRUNCATE databasechangelog ;
  TRUNCATE loader_variables ;
  TRUNCATE place_lookup;
  TRUNCATE addrfeat  ;
