@@ -64,6 +64,12 @@
 				<artifactId>osmosis-pgsnapshot</artifactId>
 				<version>0.43.1</version>
 			</dependency>
+			<dependency>
+				<groupId>org.openstreetmap.osmosis</groupId>
+				<artifactId>osmosis-apidb</artifactId>
+				<version>0.43.1</version>
+			</dependency>
+
 
 			<dependency>
 				<groupId>org.testng</groupId>

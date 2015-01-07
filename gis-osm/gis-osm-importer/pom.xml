@@ -24,6 +24,11 @@
 			<groupId>org.openstreetmap.osmosis</groupId>
 			<artifactId>osmosis-pgsnapshot</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.openstreetmap.osmosis</groupId>
+			<artifactId>osmosis-apidb</artifactId>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.testng</groupId>

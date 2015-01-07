@@ -32,9 +32,9 @@ public class Importer {
 			commandLine = commandLineParser.parse(options, args);
 		} catch (ParseException e) {
 			//FIXME logger i ogarnac handlowanie bledow
+			//FIXME wywraca sie na nieznanych paramterach, chyba nie powinien
 			System.err.println("Error while parsing command line arguments");
 			e.printStackTrace();
-			System.exit(-1);
 		}
 		
 		if (commandLine.hasOption(CommandLineOption.CLEAR.getText()) == true) {
@@ -52,7 +52,7 @@ public class Importer {
 		if (commandLine.hasOption(CommandLineOption.POPULATE.getText()) == true) {
 			Map<CommandLineOption, String> parameters = extractArguments(CommandLineOption.FILENAME,CommandLineOption.DB_NAME,CommandLineOption.DB_PASSWORD,CommandLineOption.DB_USER,CommandLineOption.DB_URL);
 			OsmosisStarter starter = new OsmosisStarter();
-			starter.populate(parameters);
+			starter.populateDb(parameters);
 		}
 		
 	}
