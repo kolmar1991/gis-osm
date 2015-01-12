@@ -1,23 +1,19 @@
-package pl.edu.agh;
+package pl.edu.agh.gis.osm.main.core.dao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SampleDao {
+public class SegmentSetDao {
 
+
+	//TODO abstract dao i podziedziczyc
     private final JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public SampleDao(JdbcTemplate jdbcTemplate) {
+    public SegmentSetDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
-
-
-    public String getValues() {
-        String result = jdbcTemplate.queryForObject("select lol from test where id = 1",String.class);
-        return result;
-    }
-
+	
 }
