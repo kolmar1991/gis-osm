@@ -11,5 +11,8 @@
 		<sqlFile path="/liquibase/clearTablesProcedure.sql" />
 	</changeSet>
 
+	<changeSet id="3" author="mzak">
+		<sqlFile path="/liquibase/customNodes.sql" />
+	</changeSet>
 
 </databaseChangeLog>
