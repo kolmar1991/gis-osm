@@ -10,33 +10,27 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import pl.edu.agh.gis.osm.commons.entity.CustomNode;
-import pl.edu.agh.gis.osm.main.core.dao.CustomNodeDao;
+import pl.edu.agh.gis.osm.main.core.service.CustomNodeService;
 
 @RestController
-public class CustomNodeService {
+public class CustomNodeRestApi {
 
-	private final CustomNodeDao  customNodeDao;
-	
 	@Autowired
-	public CustomNodeService(CustomNodeDao customNodeDao) {
-		this.customNodeDao = customNodeDao;
-		
-	}
+	private CustomNodeService service;
 	
 	@RequestMapping(value = "/customnode/", method = RequestMethod.POST, headers = "Accept=application/json")
 	public CustomNode create(@RequestBody CustomNode customNode) {
-		return customNodeDao.create(customNode);
+		return service.create(customNode);
 	}
-	//TODO error handler generyczny dla requestow
+	
 	@RequestMapping(value = "/customnode/", method = RequestMethod.GET)
 	public List<CustomNode> getAll() {
-		return customNodeDao.getAll();
+		return service.getAll();
 	}
 	
 	@RequestMapping(value = "/customnode/{id}", method = RequestMethod.GET)
-	public CustomNode get(@PathVariable int id) {
-		return null;
+	public CustomNode getById(@PathVariable int id) {
+		return service.getById(id);
 	}
-	
-	//TODO update delete
+
 }

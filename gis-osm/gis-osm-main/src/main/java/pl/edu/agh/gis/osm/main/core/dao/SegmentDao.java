@@ -1,18 +1,18 @@
 package pl.edu.agh.gis.osm.main.core.dao;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
+import pl.edu.agh.gis.osm.commons.entity.Segment;
+
 @Component
-public class SegmentDao {
+public class SegmentDao extends BaseDao {
 
-	//TODO abstract dao i podziedziczyc
-    private final JdbcTemplate jdbcTemplate;
+	public Segment create(Segment segment) {
+		return null;
+	}
 
-    @Autowired
-    public SegmentDao(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
+	public Segment getById(Segment segment) {
+		return null;
+	}
 	
 }
