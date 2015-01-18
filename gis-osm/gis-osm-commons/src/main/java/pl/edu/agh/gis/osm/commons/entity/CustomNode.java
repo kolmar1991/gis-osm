@@ -2,31 +2,31 @@ package pl.edu.agh.gis.osm.commons.entity;
 
 public class CustomNode {
 
-	private int id;
-	private double lat;
-	private double lon;	
+	private Integer id;
+	private Double lat;
+	private Double lon;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
-	public double getLat() {
+	public Double getLat() {
 		return lat;
 	}
 
-	public void setLat(double lat) {
+	public void setLat(Double lat) {
 		this.lat = lat;
 	}
 
-	public double getLon() {
+	public Double getLon() {
 		return lon;
 	}
 
-	public void setLon(double lon) {
+	public void setLon(Double lon) {
 		this.lon = lon;
 	}
 

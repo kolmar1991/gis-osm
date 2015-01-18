@@ -21,10 +21,7 @@ public class CustomNodeDao extends BaseDao {
 	@Autowired
 	protected CustomNodeMapper customNodeMapper;
 
-	
-    //TODO wywalic sqle do osobnej klasy czy cos
     private final static String GET_ALL_QUERY = "SELECT * FROM custom_nodes";
-    
     
     public List<CustomNode> getAll() {
 
@@ -38,12 +35,12 @@ public class CustomNodeDao extends BaseDao {
     
     public CustomNode create(CustomNode customNode) {
     	Map<String, Object> parameters = new HashMap<>();
-    	parameters.put("lat", customNode.getLat()); //TODO externalize key
+    	parameters.put("lat", customNode.getLat());
     	parameters.put("lon", customNode.getLon());
     	KeyHolder keyHolder = new GeneratedKeyHolder();
     	SqlParameterSource source = new MapSqlParameterSource(parameters);
-    	jdbcTemplate.update(INSERT_SQL, source, keyHolder,new String[] { "id" });//TODO brzydkie to
-    	customNode.setId(keyHolder. getKey().intValue());//TODO to tez
+    	jdbcTemplate.update(INSERT_SQL, source, keyHolder,new String[] { "id" });
+    	customNode.setId(keyHolder. getKey().intValue());
     	return customNode;
     }
     

@@ -2,17 +2,17 @@ package pl.edu.agh.gis.osm.commons.entity;
 
 public class Segment {
 
-	private int id;
+	private Integer id;
 	private CustomNode pointA;
 	private CustomNode pointB;
-	private int ordinal;
-	private int segmentSetId;
+	private Integer ordinal;
+	private Integer segmentSetId;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -32,7 +32,7 @@ public class Segment {
 		this.pointB = pointB;
 	}
 
-	public int getOrdinal() {
+	public Integer getOrdinal() {
 		return ordinal;
 	}
 
@@ -40,7 +40,7 @@ public class Segment {
 		this.ordinal = ordinal;
 	}
 
-	public int getSegmentSetId() {
+	public Integer getSegmentSetId() {
 		return segmentSetId;
 	}
 
@@ -49,7 +49,7 @@ public class Segment {
 		return "Segment [id=" + id + ", pointA=" + pointA + ", pointB=" + pointB + ", ordinal=" + ordinal + ", segmentSetId=" + segmentSetId + "]";
 	}
 
-	public void setSegmentSetId(int segmentSetId) {
+	public void setSegmentSetId(Integer segmentSetId) {
 		this.segmentSetId = segmentSetId;
 	}
 
