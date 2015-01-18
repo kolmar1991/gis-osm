@@ -1,10 +1,7 @@
 package pl.edu.agh.gis.osm.main.core.rest.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import pl.edu.agh.gis.osm.commons.entity.Segment;
 import pl.edu.agh.gis.osm.main.core.service.SegmentService;
 
@@ -21,10 +18,14 @@ public class SegmentRestApi {
         return segmentService.create(segment);
     }
 
-    @RequestMapping(value = "/segment", method = RequestMethod.POST, headers = "Accept=application/json")
+    @RequestMapping(value = "/segment", method = RequestMethod.GET)
     public List<Segment> getAll() {
         return  segmentService.getAll();
     }
 
+    @RequestMapping(value = "/segment/{id}", method = RequestMethod.GET)
+    public Segment getById(@PathVariable Integer id) {
+        return  segmentService.getById(id);
+    }
 
 }

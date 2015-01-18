@@ -38,4 +38,12 @@ public class SegmentService {
         return segmentDao.getAll();
     }
 
+    public  Segment getById(Integer id) {
+        return segmentDao.getById(id);
+    }
+
+    public List<Segment> getBySetId(Integer setId) {
+        return segmentDao.getBySetId(setId);
+    }
+
 }

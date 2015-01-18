@@ -15,12 +15,12 @@ public class SegmentSetRestApi {
     protected SegmentSetService segmentSetService;
 
 
-    @RequestMapping(value = "/segmentSet/", method = RequestMethod.POST, headers = "Accept=application/json")
+    @RequestMapping(value = "/segmentset", method = RequestMethod.POST, headers = "Accept=application/json")
     public SegmentSet create(@RequestBody SegmentSet segmentSet) {
         return segmentSetService.create(segmentSet);
     }
 
-    @RequestMapping(value = "/segmentset/", method = RequestMethod.GET)
+    @RequestMapping(value = "/segmentset", method = RequestMethod.GET)
     public List<SegmentSet> getAll() {
         return segmentSetService.getAll();
     }

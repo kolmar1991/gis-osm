@@ -39,12 +39,12 @@ public class CustomNodeDao extends BaseDao {
     	parameters.put("lon", customNode.getLon());
     	KeyHolder keyHolder = new GeneratedKeyHolder();
     	SqlParameterSource source = new MapSqlParameterSource(parameters);
-    	jdbcTemplate.update(INSERT_SQL, source, keyHolder,new String[] { "id" });
+    	jdbcTemplate.update(INSERT_SQL, source, keyHolder,new String[] { "custom_node_id" });
     	customNode.setId(keyHolder. getKey().intValue());
     	return customNode;
     }
     
-    private final static String GET_BY_ID_SQL = "SELECT * FROM custom_nodes c WHERE c.id = :id";
+    private final static String GET_BY_ID_SQL = "SELECT * FROM custom_nodes c WHERE c.custom_node_id = :id";
     
     public CustomNode getById(int id) {
     	Map<String, Object> parameteres = new HashMap<>();
