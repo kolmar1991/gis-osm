@@ -15,4 +15,8 @@
 		<sqlFile path="/liquibase/customNodes.sql" />
 	</changeSet>
 
+	<changeSet id="4" author="mzak">
+		<sqlFile path="/liquibase/customNodesRename.sql" />
+	</changeSet>
+
 </databaseChangeLog>
