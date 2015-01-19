@@ -1,0 +1,15 @@
+1. Połączenie do db - plik /etc/postgres/<ver>/pg_hba.conf tak ma być - linia:
+
+local   all             all                                     md5
+
+2. Z konsoli odpalić:
+
+psql template1 -c 'create extension hstore;'
+
+3. Odpalić z usera postgres skrypt createUser.sql
+
+4. Odpalić z usera postgres na bazie ztb skrypt enablePostgis.sql
+
+5. Odpalić z usera ztb na bazie ztb skrypt osmosisSchema.sql
+
+6. Odpalić z usera ztb na bazie ztb skrypt customNodes.sql

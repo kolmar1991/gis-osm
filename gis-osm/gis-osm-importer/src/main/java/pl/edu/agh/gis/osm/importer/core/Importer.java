@@ -9,7 +9,6 @@ import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
-import pl.edu.agh.gis.osm.importer.dao.GisOsmDao;
 import pl.edu.agh.gis.osm.importer.map.provider.MapProvider;
 import pl.edu.agh.gis.osm.importer.osmosis.OsmosisStarter;
 
@@ -39,8 +38,8 @@ public class Importer {
 		
 		if (commandLine.hasOption(CommandLineOption.CLEAR.getText()) == true) {
 			Map<CommandLineOption, String> parameters = extractArguments(CommandLineOption.DB_NAME,CommandLineOption.DB_PASSWORD,CommandLineOption.DB_USER,CommandLineOption.DB_URL);
-			GisOsmDao dao = new GisOsmDao();
-			dao.clearTables(parameters);
+            OsmosisStarter starter = new OsmosisStarter();
+            starter.truncateDb(parameters);
 		}
 		
 		if (commandLine.hasOption(CommandLineOption.DOWNLOAD.getText()) == true) {
