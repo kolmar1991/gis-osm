@@ -17,7 +17,7 @@ public class CustomNodeMapper implements RowMapper<CustomNode>{
 			
 		CustomNode customNode = new CustomNode();
 		
-		customNode.setId((Integer)(resultSet.getInt("id"))); //TODO wywalic stringi do klasy z sqlami itp
+		customNode.setId((Integer)(resultSet.getInt("custom_node_id")));
 		PGgeometry geom = (PGgeometry) resultSet.getObject("geom");
 		Point point = geom.getGeometry().getFirstPoint();
 		customNode.setLat(point.x);//FIXME ktore to x a ktore y
