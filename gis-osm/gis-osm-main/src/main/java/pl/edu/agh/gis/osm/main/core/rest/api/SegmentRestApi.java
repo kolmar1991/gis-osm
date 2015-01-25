@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import pl.edu.agh.gis.osm.commons.entity.Segment;
+import pl.edu.agh.gis.osm.main.core.logger.Logger;
 import pl.edu.agh.gis.osm.main.core.service.SegmentService;
 
 import java.util.List;
@@ -17,8 +18,8 @@ public class SegmentRestApi {
     @Autowired
     protected SegmentService segmentService;
 
-	//@Autowired
-	private GisLogger log;
+	@Autowired
+	private Logger log;
     
     @RequestMapping(value = "/segment", method = RequestMethod.POST, headers = "Accept=application/json")
     public Segment create(@RequestBody Segment segment) {

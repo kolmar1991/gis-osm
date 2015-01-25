@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import pl.edu.agh.gis.osm.commons.entity.CustomNode;
+import pl.edu.agh.gis.osm.main.core.logger.Logger;
 import pl.edu.agh.gis.osm.main.core.service.CustomNodeService;
 
 @RestController
@@ -21,8 +22,8 @@ public class CustomNodeRestApi {
 	@Autowired
 	private CustomNodeService service;
 	
-	//@Autowired
-	private GisLogger log;
+	@Autowired
+	private Logger log;
 	
 	@RequestMapping(value = "/customnode/", method = RequestMethod.POST, headers = "Accept=application/json")
 	public CustomNode create(@RequestBody CustomNode customNode) {
