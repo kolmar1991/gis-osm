@@ -44,6 +44,10 @@
 			<artifactId>postgis-jdbc</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>jjjloger</groupId>
+			<artifactId>jjjloger</artifactId>
+		</dependency>
 
 	</dependencies>
 
