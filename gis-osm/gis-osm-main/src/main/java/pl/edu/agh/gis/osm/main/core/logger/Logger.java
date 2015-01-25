@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
 @Configuration
-@ImportResource("ztb7-context.xml")
+@ImportResource({"ztb7-context.xml", "applicationContext.xml"})
 public class Logger {
 
     @Autowired
