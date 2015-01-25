@@ -3,7 +3,6 @@ package pl.edu.agh.gis.osm.main.core.rest.api;
 import java.util.List;
 
 import loggers.enums.SourceType;
-import loggers.impl.GisLogger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
