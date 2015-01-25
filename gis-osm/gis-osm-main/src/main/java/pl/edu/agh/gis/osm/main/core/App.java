@@ -7,9 +7,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.ImportResource;
 
+import java.util.Arrays;
+
 @Configuration
 @EnableAutoConfiguration
-@ImportResource("classpath*:ztb7­context.xml")
 @ComponentScan
 public class App {
 
