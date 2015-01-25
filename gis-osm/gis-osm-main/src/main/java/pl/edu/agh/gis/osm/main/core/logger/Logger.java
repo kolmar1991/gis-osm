@@ -3,19 +3,16 @@ package pl.edu.agh.gis.osm.main.core.logger;
 
 import loggers.enums.SourceType;
 import loggers.impl.GisLogger;
-import org.springframework.context.ApplicationContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.ImportResource;
 
 @Configuration
+@ImportResource("ztb7-context.xml")
 public class Logger {
 
+    @Autowired
     public GisLogger log;
-
-    public Logger() {
-        ApplicationContext springContext = new ClassPathXmlApplicationContext("ztb7-context.xml");
-        log = springContext.getBean(GisLogger.class);
-    }
 
     public void logSuccess(SourceType sourceType, String details) {
         log.logSuccess(sourceType, details);
