@@ -1,9 +1,10 @@
 package pl.edu.agh.gis.osm.main.core.dao;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
-import org.springframework.jdbc.core.ResultSetExtractor;
-import org.springframework.jdbc.core.RowMapperResultSetExtractor;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
@@ -11,16 +12,8 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
 
 import pl.edu.agh.gis.osm.commons.entity.Segment;
-import pl.edu.agh.gis.osm.commons.entity.SegmentSet;
 import pl.edu.agh.gis.osm.main.core.dao.mapper.CustomNodeMapper;
 import pl.edu.agh.gis.osm.main.core.dao.mapper.SegmentCustomNodeExtractor;
-
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 @Component
 public class SegmentDao extends BaseDao {

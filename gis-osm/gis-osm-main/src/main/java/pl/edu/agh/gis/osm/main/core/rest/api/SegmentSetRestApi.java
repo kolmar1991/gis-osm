@@ -3,7 +3,6 @@ package pl.edu.agh.gis.osm.main.core.rest.api;
 import java.util.List;
 
 import loggers.enums.SourceType;
-import loggers.impl.GisLogger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -42,4 +41,5 @@ public class SegmentSetRestApi {
     	log.logSuccess(SourceType.MANUAL, String.format("Get SegmentSet by Id invoked with param: %s", id));
         return segmentSetService.getById(id);
     }
+    
 }

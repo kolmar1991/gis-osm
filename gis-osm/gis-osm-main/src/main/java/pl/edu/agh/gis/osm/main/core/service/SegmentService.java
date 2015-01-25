@@ -23,12 +23,18 @@ public class SegmentService {
         if (nodeA != null && nodeA.getId() == null ) {
             CustomNode created = customNodeService.create(nodeA);
             segment.setPointA(created);
-        }
+        } else {
+        	segment.setPointA(nodeA);
+		}
+        
         CustomNode nodeB = segment.getPointB();
         if (nodeB != null && nodeB.getId() == null ) {
             CustomNode created = customNodeService.create(nodeB);
             segment.setPointB(created);
-        }
+        } else {
+			segment.setPointB(nodeB);
+		}
+        
         Segment created = segmentDao.create(segment);
         return created;
 

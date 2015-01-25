@@ -1,14 +1,19 @@
 package pl.edu.agh.gis.osm.main.core.rest.api;
 
+import java.util.List;
+
 import loggers.enums.SourceType;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import pl.edu.agh.gis.osm.commons.entity.Segment;
 import pl.edu.agh.gis.osm.main.core.logger.Logger;
 import pl.edu.agh.gis.osm.main.core.service.SegmentService;
-
-import java.util.List;
 
 @RestController
 public class SegmentRestApi {
@@ -16,7 +21,7 @@ public class SegmentRestApi {
     @Autowired
     protected SegmentService segmentService;
 
-    @Autowired
+	@Autowired
 	private Logger log;
     
     @RequestMapping(value = "/segment", method = RequestMethod.POST, headers = "Accept=application/json")
