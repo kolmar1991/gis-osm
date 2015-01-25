@@ -21,7 +21,7 @@ public class SegmentSetRestApi {
     @Autowired
     protected SegmentSetService segmentSetService;
 
-	@Autowired
+	//@Autowired
 	private GisLogger log;
     
     @RequestMapping(value = "/segmentset", method = RequestMethod.POST, headers = "Accept=application/json")

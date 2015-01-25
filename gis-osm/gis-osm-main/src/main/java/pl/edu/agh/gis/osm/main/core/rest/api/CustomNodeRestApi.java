@@ -21,7 +21,7 @@ public class CustomNodeRestApi {
 	@Autowired
 	private CustomNodeService service;
 	
-	@Autowired
+	//@Autowired
 	private GisLogger log;
 	
 	@RequestMapping(value = "/customnode/", method = RequestMethod.POST, headers = "Accept=application/json")
