@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import pl.edu.agh.gis.osm.commons.entity.SegmentSet;
-import pl.edu.agh.gis.osm.main.core.logger.Logger;
 import pl.edu.agh.gis.osm.main.core.service.SegmentSetService;
 
 @RestController
@@ -22,8 +21,8 @@ public class SegmentSetRestApi {
     @Autowired
     protected SegmentSetService segmentSetService;
 
-	@Autowired
-	private Logger log;
+	//@Autowired
+	private GisLogger log;
     
     @RequestMapping(value = "/segmentset", method = RequestMethod.POST, headers = "Accept=application/json")
     public SegmentSet create(@RequestBody SegmentSet segmentSet) {
