@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import pl.edu.agh.gis.osm.commons.entity.SegmentSet;
 import pl.edu.agh.gis.osm.main.core.dao.mapper.SegmentSetMapper;
+import pl.edu.agh.gis.osm.main.core.logger.Logger;
 
 @Component
 public class SegmentSetDao extends BaseDao {
@@ -21,6 +22,9 @@ public class SegmentSetDao extends BaseDao {
     @Autowired
     protected SegmentSetMapper segmentSetMapper;
 
+    @Autowired
+    protected Logger log;
+    
     protected static final String INSERT_SQL = "INSERT INTO segment_set(metadata) VALUES(:metadata)";
 
 	public SegmentSet create(SegmentSet segmentSet) {
@@ -30,6 +34,7 @@ public class SegmentSetDao extends BaseDao {
         SqlParameterSource source = new MapSqlParameterSource(parameters);
         jdbcTemplate.update(INSERT_SQL, source, keyHolder,new String[] { "segment_set_id" });
         segmentSet.setId(keyHolder. getKey().intValue());
+        log.logSuccess(String.format("Created new SegmentSet with id = %s", segmentSet.getId()));
         return segmentSet;
     }
 

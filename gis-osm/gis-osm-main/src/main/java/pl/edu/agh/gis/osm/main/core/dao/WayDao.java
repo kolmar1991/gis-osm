@@ -10,12 +10,16 @@ import org.springframework.stereotype.Component;
 
 import pl.edu.agh.gis.osm.commons.entity.Way;
 import pl.edu.agh.gis.osm.main.core.dao.mapper.WayMapper;
+import pl.edu.agh.gis.osm.main.core.logger.Logger;
 
 @Component
 public class WayDao extends BaseDao {
 
 	@Autowired
 	protected WayMapper wayMapper;
+
+	@Autowired
+	protected Logger log;
 
 	public static final String GET_BY_ID_SQL = "SELECT * FROM ways w WHERE w.id = :id";
 
@@ -34,6 +38,7 @@ public class WayDao extends BaseDao {
 		Map<String, Object> parameteres = new HashMap<>();
 		parameteres.put("radius", radius);
 		List<Way> ways = jdbcTemplate.query(sql, parameteres, new RowMapperResultSetExtractor<Way>(wayMapper));
+		log.logSuccess(String.format("Returning %s ways", ways.size()));
 		return ways;
 	}
 

@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import pl.edu.agh.gis.osm.commons.entity.CustomNode;
 import pl.edu.agh.gis.osm.main.core.dao.mapper.CustomNodeMapper;
+import pl.edu.agh.gis.osm.main.core.logger.Logger;
 
 @Component
 public class CustomNodeDao extends BaseDao {
@@ -21,36 +22,40 @@ public class CustomNodeDao extends BaseDao {
 	@Autowired
 	protected CustomNodeMapper customNodeMapper;
 
-    private final static String GET_ALL_QUERY = "SELECT * FROM custom_nodes";
-    
-    public List<CustomNode> getAll() {
+	@Autowired
+	protected Logger log;
 
-    	List<CustomNode> customNodeList = jdbcTemplate.query(GET_ALL_QUERY, new RowMapperResultSetExtractor<CustomNode>(customNodeMapper));
-    	
-    	return customNodeList;
- 
-    }
-    
-    private final static String INSERT_SQL = "INSERT INTO custom_nodes(geom) VALUES(ST_SetSRID(ST_MakePoint(:lat,:lon), 4326))	";
-    
-    public CustomNode create(CustomNode customNode) {
-    	Map<String, Object> parameters = new HashMap<>();
-    	parameters.put("lat", customNode.getLat());
-    	parameters.put("lon", customNode.getLon());
-    	KeyHolder keyHolder = new GeneratedKeyHolder();
-    	SqlParameterSource source = new MapSqlParameterSource(parameters);
-    	jdbcTemplate.update(INSERT_SQL, source, keyHolder,new String[] { "custom_node_id" });
-    	customNode.setId(keyHolder. getKey().intValue());
-    	return customNode;
-    }
-    
-    private final static String GET_BY_ID_SQL = "SELECT * FROM custom_nodes c WHERE c.custom_node_id = :id";
-    
-    public CustomNode getById(int id) {
-    	Map<String, Object> parameteres = new HashMap<>();
-    	parameteres.put("id",id);
-    	CustomNode result = jdbcTemplate.queryForObject(GET_BY_ID_SQL, parameteres, customNodeMapper);
-    	return result;
-    }
-    
+	private final static String GET_ALL_QUERY = "SELECT * FROM custom_nodes";
+
+	public List<CustomNode> getAll() {
+		List<CustomNode> customNodeList = jdbcTemplate.query(GET_ALL_QUERY, new RowMapperResultSetExtractor<CustomNode>(customNodeMapper));
+		log.logSuccess(String.format("Returning %s customNodes", customNodeList.size()));
+		return customNodeList;
+
+	}
+
+	private final static String INSERT_SQL = "INSERT INTO custom_nodes(geom) VALUES(ST_SetSRID(ST_MakePoint(:lat,:lon), 4326))	";
+
+	public CustomNode create(CustomNode customNode) {
+		Map<String, Object> parameters = new HashMap<>();
+		parameters.put("lat", customNode.getLat());
+		parameters.put("lon", customNode.getLon());
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		SqlParameterSource source = new MapSqlParameterSource(parameters);
+		jdbcTemplate.update(INSERT_SQL, source, keyHolder, new String[] { "custom_node_id" });
+		customNode.setId(keyHolder.getKey().intValue());
+		log.logSuccess(String.format("Created new customNode with id = %s", customNode.getId()));
+		return customNode;
+	}
+
+	private final static String GET_BY_ID_SQL = "SELECT * FROM custom_nodes c WHERE c.custom_node_id = :id";
+
+	public CustomNode getById(int id) {
+		Map<String, Object> parameteres = new HashMap<>();
+		parameteres.put("id", id);
+		CustomNode result = jdbcTemplate.queryForObject(GET_BY_ID_SQL, parameteres, customNodeMapper);
+		log.logSuccess(String.format("Returning customNode with id = %s", result.getId()));
+		return result;
+	}
+
 }

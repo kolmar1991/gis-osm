@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 public class BaseDao {
 
 	@Autowired
-    @Qualifier("jdbcTemplate_gis")
-    protected NamedParameterJdbcTemplate jdbcTemplate;
+	@Qualifier("jdbcTemplate_gis")
+	protected NamedParameterJdbcTemplate jdbcTemplate;
+	
 }
