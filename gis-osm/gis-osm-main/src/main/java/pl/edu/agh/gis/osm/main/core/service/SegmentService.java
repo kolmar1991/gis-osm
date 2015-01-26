@@ -2,9 +2,11 @@ package pl.edu.agh.gis.osm.main.core.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import pl.edu.agh.gis.osm.commons.entity.CustomNode;
 import pl.edu.agh.gis.osm.commons.entity.Segment;
 import pl.edu.agh.gis.osm.main.core.dao.SegmentDao;
+import pl.edu.agh.gis.osm.main.core.logger.Logger;
 
 import java.util.List;
 
@@ -17,15 +19,19 @@ public class SegmentService {
     @Autowired
     protected CustomNodeService customNodeService;
 
+    @Autowired
+    protected Logger log;
+    
     public Segment create(Segment segment) {
 
         CustomNode nodeA = segment.getPointA();
         if (nodeA != null && nodeA.getId() == null ) {
-            CustomNode created = customNodeService.create(nodeA);
+        	CustomNode created = customNodeService.create(nodeA);
             segment.setPointA(created);
         } else {
         	segment.setPointA(nodeA);
 		}
+       
         
         CustomNode nodeB = segment.getPointB();
         if (nodeB != null && nodeB.getId() == null ) {
@@ -36,6 +42,10 @@ public class SegmentService {
 		}
         
         Segment created = segmentDao.create(segment);
+        
+        log.logSuccess(String.format("CustomNode with id = %s added to segment with id = %s as PointA", segment.getPointA().getId(),segment.getId()));
+        log.logSuccess(String.format("CustomNode with id = %s added to segment with id = %s as PointB", segment.getPointB().getId(),segment.getId()));
+        
         return created;
 
     }
