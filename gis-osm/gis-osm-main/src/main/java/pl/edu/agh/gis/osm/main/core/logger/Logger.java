@@ -14,12 +14,12 @@ public class Logger {
     @Autowired
     public GisLogger log;
 
-    public void logSuccess(SourceType sourceType, String details) {
-        log.logSuccess(sourceType, details);
+    public void logSuccess(String details) {
+        log.logSuccess(SourceType.MANUAL, details);
     }
 
-    public void logFailure(SourceType sourceType, String detailedError){
-        log.logFailure(sourceType, detailedError);
+    public void logFailure(String detailedError){
+        log.logFailure(SourceType.MANUAL, detailedError);
     }
 
 
