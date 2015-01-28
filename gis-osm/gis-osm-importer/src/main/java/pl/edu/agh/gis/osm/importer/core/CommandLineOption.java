@@ -13,8 +13,11 @@ public enum CommandLineOption {
 	MAX_LAT("maxlat",true),	
 	MIN_LON("minlon",true),	
 	MAX_LON("maxlon",true),	
-	FILENAME("filename",true);
-	
+	FILENAME("filename",true),
+	CHANGE_OLD("changeOld",true),
+	CHANGE_NEW("changeNew",true),
+	CHANGE_RESULT("changeResult",true),
+	CHANGE("changeSet",false);
 	
 	private String text;
 	private boolean hasArg;

@@ -54,6 +54,12 @@ public class Importer {
 			starter.populateDb(parameters);
 		}
 		
+		if (commandLine.hasOption(CommandLineOption.CHANGE.getText()) == true) {
+			Map<CommandLineOption, String> parameters = extractArguments(CommandLineOption.CHANGE_NEW,CommandLineOption.CHANGE_OLD,CommandLineOption.CHANGE_RESULT);
+			OsmosisStarter starter = new OsmosisStarter();
+			starter.createChangeSet(parameters);
+		}
+		
 	}
 	
 	private Map<CommandLineOption, String> extractArguments(CommandLineOption... options) {

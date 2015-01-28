@@ -29,7 +29,6 @@
 			<artifactId>osmosis-apidb</artifactId>
 		</dependency>
 
-
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
@@ -60,7 +59,6 @@
 			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<configuration>
-
 					<archive>
 						<manifest>
 							<mainClass>pl.edu.agh.gis.osm.importer.core.Importer</mainClass>
@@ -81,6 +79,7 @@
 					</execution>
 				</executions>
 			</plugin>
+
 
 		</plugins>
 	</build>
