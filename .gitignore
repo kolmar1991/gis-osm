@@ -1,0 +1,5 @@
+gis-osm/gis-osm-importer/test-output/
+.*
+!/.gitignore
+gis-osm/gis-osm-main/.settings/
+*.iml
